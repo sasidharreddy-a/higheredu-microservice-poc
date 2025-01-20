@@ -11,9 +11,8 @@ public class StudentServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(StudentServiceApplication.class, args);
 	}
-	 @Bean
-	    public RestTemplate restTemplate(){
-	        return new RestTemplate();
-	    }
-
+	@Bean
+	public RestTemplate restTemplate(){
+		return new RestTemplate();
+	}
 }
