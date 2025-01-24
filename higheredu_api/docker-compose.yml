@@ -1,7 +1,7 @@
 version: '3.8'
  
 services:
-  eureka-server:
+  service-registry:
     image: eureka-server
     container_name: eureka-server
     ports:
@@ -9,28 +9,28 @@ services:
     networks:
       - eureka-network
 
-  employee-admin:
-    image: employee-admin
-    container_name: employee-admin
+  course-service:
+    image: course-service
+    container_name: course-service
     environment:
-      SPRING_APPLICATION_NAME: employee-admin
+      SPRING_APPLICATION_NAME: course-service
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
-      SERVER_PORT: 8080
+      SERVER_PORT: 8084
       SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
     ports:
-      - "8080:8080"
+      - "8084:8080"
     networks:
       - eureka-network
     depends_on:
       - eureka-server
  
-  attendance-service1:
-    image: employee-attendance
-    container_name: attendance-service1
+  department-service:
+    image: department-service
+    container_name: department-service
     environment:
-      SPRING_APPLICATION_NAME: attendance-service
+      SPRING_APPLICATION_NAME: department-service
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
-      SERVER_PORT: 8080
+      SERVER_PORT: 8081
       SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb1
     ports:
       - "8081:8080"
@@ -39,29 +39,14 @@ services:
     depends_on:
       - eureka-server
  
-  attendance-service2:
-    image: employee-attendance
-    container_name: attendance-service2
+  enrollment-service:
+    image: enrollment-service
+    container_name: enrollment-service
     environment:
-      SPRING_APPLICATION_NAME: attendance-service
+      SPRING_APPLICATION_NAME: enrollment-service
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
-      SERVER_PORT: 8080
+      SERVER_PORT: 8083
       SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb2
-    ports:
-      - "8082:8080"
-    networks:
-      - eureka-network
-    depends_on:
-      - eureka-server
- 
-  transport-service:
-    image: transport-service
-    container_name: transport-service
-    environment:
-      SPRING_APPLICATION_NAME: transport-service
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
-      SERVER_PORT: 8080
-      SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
     ports:
       - "8083:8080"
     networks:
@@ -69,16 +54,31 @@ services:
     depends_on:
       - eureka-server
  
-  employee-onboarding-deboarding:
-    image: employee-onboarding-deboarding
-    container_name: employee-onboarding-deboarding
+  grading-service:
+    image: grading-service
+    container_name: grading-service
     environment:
-      SPRING_APPLICATION_NAME: employee-onboarding-deboarding
+      SPRING_APPLICATION_NAME: grading-service
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
-      SERVER_PORT: 8080
+      SERVER_PORT: 8086
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
+    ports:
+      - "8086:8080"
+    networks:
+      - eureka-network
+    depends_on:
+      - eureka-server
+ 
+  student-service:
+    image: student-service
+    container_name: student-service
+    environment:
+      SPRING_APPLICATION_NAME: student-service
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SERVER_PORT: 8082
       SPRING_DATASOURCE_URL: jdbc:h2:mem:mydb
     ports:
-      - "8084:8080"
+      - "8082:8080"
     networks:
       - eureka-network
     depends_on:

@@ -11,7 +11,7 @@
 	<groupId>com.higheredu_api</groupId>
 	<artifactId>course-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>student-service</name>
+	<name>course-service</name>
 	<description>Demo project for Spring Boot - Course Service</description>
 	<url/>
 	<licenses>

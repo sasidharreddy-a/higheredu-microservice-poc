@@ -11,7 +11,7 @@
 	<groupId>com.higheredu_api</groupId>
 	<artifactId>enrollment-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>student-service</name>
+	<name>enrollment-service</name>
 	<description>Demo project for Spring Boot - Enrollment Service</description>
 	<url/>
 	<licenses>
