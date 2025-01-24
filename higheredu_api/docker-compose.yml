@@ -1,0 +1,89 @@
+version: '3.8'
+ 
+services:
+  eureka-server:
+    image: eureka-server
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - eureka-network
+
+  employee-admin:
+    image: employee-admin
+    container_name: employee-admin
+    environment:
+      SPRING_APPLICATION_NAME: employee-admin
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SERVER_PORT: 8080
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
+    ports:
+      - "8080:8080"
+    networks:
+      - eureka-network
+    depends_on:
+      - eureka-server
+ 
+  attendance-service1:
+    image: employee-attendance
+    container_name: attendance-service1
+    environment:
+      SPRING_APPLICATION_NAME: attendance-service
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SERVER_PORT: 8080
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb1
+    ports:
+      - "8081:8080"
+    networks:
+      - eureka-network
+    depends_on:
+      - eureka-server
+ 
+  attendance-service2:
+    image: employee-attendance
+    container_name: attendance-service2
+    environment:
+      SPRING_APPLICATION_NAME: attendance-service
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SERVER_PORT: 8080
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb2
+    ports:
+      - "8082:8080"
+    networks:
+      - eureka-network
+    depends_on:
+      - eureka-server
+ 
+  transport-service:
+    image: transport-service
+    container_name: transport-service
+    environment:
+      SPRING_APPLICATION_NAME: transport-service
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SERVER_PORT: 8080
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
+    ports:
+      - "8083:8080"
+    networks:
+      - eureka-network
+    depends_on:
+      - eureka-server
+ 
+  employee-onboarding-deboarding:
+    image: employee-onboarding-deboarding
+    container_name: employee-onboarding-deboarding
+    environment:
+      SPRING_APPLICATION_NAME: employee-onboarding-deboarding
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SERVER_PORT: 8080
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:mydb
+    ports:
+      - "8084:8080"
+    networks:
+      - eureka-network
+    depends_on:
+      - eureka-server
+ 
+networks:
+  eureka-network:
+    driver: bridge
