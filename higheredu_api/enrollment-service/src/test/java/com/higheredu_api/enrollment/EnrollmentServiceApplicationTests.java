@@ -1,10 +1,10 @@
-package com.java.serviceregistry.service_registry;
+package com.higheredu_api.enrollment;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ServiceRegistryApplicationTests {
+class EnrollmentServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

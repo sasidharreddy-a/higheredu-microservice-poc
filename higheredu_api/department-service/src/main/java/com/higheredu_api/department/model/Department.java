@@ -1,11 +1,7 @@
-package com.micro.department_service.model;
+package com.higheredu_api.department.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 @Entity
 @Table(name = "departments")
 public class Department {

@@ -37,7 +37,6 @@ mvn_tmp*
 *.swo
 *.swp
 .vscode/
-*.class
 student-accounts/application/angularjs/.npmrc
 automated-tests/Selenium_Post_Prod_afts/Output/
 .factorypath

@@ -1,4 +1,4 @@
-package com.micro.department_service;
+package com.higheredu_api.department;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

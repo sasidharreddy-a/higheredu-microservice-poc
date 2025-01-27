@@ -1,10 +1,10 @@
-package com.micro.department_service;
+package com.higheredu_api.course;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DepartmentServiceApplicationTests {
+class CourseServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

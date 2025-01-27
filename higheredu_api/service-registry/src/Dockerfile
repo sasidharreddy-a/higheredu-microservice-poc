@@ -1,5 +1,5 @@
 FROM openjdk:17
 WORKDIR /app
-COPY target/employee-admin-0.0.1-SNAPSHOT.jar /app/admin.jar
+COPY target/service-registry-0.0.1-SNAPSHOT.jar /app/serviceregistry.jar
 EXPOSE 8761
-CMD ["java", "-jar", "admin.jar"]
+CMD ["java", "-jar", "serviceregistry.jar"]

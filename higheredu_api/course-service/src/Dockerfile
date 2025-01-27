@@ -1,5 +1,5 @@
 FROM openjdk:17
 WORKDIR /app
-COPY target/employee-admin-0.0.1-SNAPSHOT.jar /app/admin.jar
+COPY target/course-service-0.0.1-SNAPSHOT.jar /app/course.jar
 EXPOSE 8084
-CMD ["java", "-jar", "admin.jar"]
+CMD ["java", "-jar", "course.jar"]

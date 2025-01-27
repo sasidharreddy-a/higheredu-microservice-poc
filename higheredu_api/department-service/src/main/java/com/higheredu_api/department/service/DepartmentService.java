@@ -1,8 +1,8 @@
-package com.micro.department_service.service;
+package com.higheredu_api.department.service;
+
+import com.higheredu_api.department.model.Department;
 
 import java.util.List;
-
-import com.micro.department_service.model.Department;
 
 public interface DepartmentService {
 	

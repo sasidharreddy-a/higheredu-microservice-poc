@@ -1,16 +1,14 @@
-package com.micro.department_service.serviceImpl;
+package com.higheredu_api.department.serviceImpl;
 
-import java.util.List;
-
+import com.higheredu_api.department.model.Department;
+import com.higheredu_api.department.repository.DepartmentRepository;
+import com.higheredu_api.department.service.DepartmentService;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.micro.department_service.model.Department;
-import com.micro.department_service.repository.DepartmentRepository;
-import com.micro.department_service.service.DepartmentService;
-
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.util.List;
 
 @Service
 @AllArgsConstructor

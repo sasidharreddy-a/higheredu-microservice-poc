@@ -1,10 +1,10 @@
-package com.micro.user_service;
+package com.higheredu_api.student;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UserServiceApplicationTests {
+class StudentServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
