@@ -24,6 +24,8 @@ public class RosterColumn {
 	private String instructorName;
 	private String refUri;
 	private String refId;
+	private boolean submitted;
+    private String graderId;
 	public Long getId() {
 		return id;
 	}
@@ -84,8 +86,21 @@ public class RosterColumn {
 	public void setRefId(String refId) {
 		this.refId = refId;
 	}
+	public boolean isSubmitted() {
+		return submitted;
+	}
+	public void setSubmitted(boolean submitted) {
+		this.submitted = submitted;
+	}
+	public String getGraderId() {
+		return graderId;
+	}
+	public void setGraderId(String graderId) {
+		this.graderId = graderId;
+	}
 	public RosterColumn(Long id, String rosterColumnState, String rosterColumnType, String name, String discription,
-			int rosterId, String atpId, String instructorName, String refUri, String refId) {
+			int rosterId, String atpId, String instructorName, String refUri, String refId, boolean submitted,
+			String graderId) {
 		super();
 		this.id = id;
 		this.rosterColumnState = rosterColumnState;
@@ -97,11 +112,14 @@ public class RosterColumn {
 		this.instructorName = instructorName;
 		this.refUri = refUri;
 		this.refId = refId;
+		this.submitted = submitted;
+		this.graderId = graderId;
 	}
 	public RosterColumn() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
+    
+    
+
 }
