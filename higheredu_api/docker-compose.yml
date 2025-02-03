@@ -1,9 +1,9 @@
 version: '3.8'
- 
+
 services:
   service-registry:
-    image: eureka-server
-    container_name: eureka-server
+    image: service-registry
+    container_name: service-registry
     ports:
       - "8761:8761"
     networks:
@@ -22,7 +22,7 @@ services:
     networks:
       - eureka-network
     depends_on:
-      - eureka-server
+      - service-registry
  
   department-service:
     image: department-service
@@ -37,7 +37,7 @@ services:
     networks:
       - eureka-network
     depends_on:
-      - eureka-server
+      - service-registry
  
   enrollment-service:
     image: enrollment-service
@@ -52,7 +52,7 @@ services:
     networks:
       - eureka-network
     depends_on:
-      - eureka-server
+      - service-registry
  
   grading-service:
     image: grading-service
@@ -67,7 +67,7 @@ services:
     networks:
       - eureka-network
     depends_on:
-      - eureka-server
+      - service-registry
  
   student-service:
     image: student-service
@@ -82,7 +82,7 @@ services:
     networks:
       - eureka-network
     depends_on:
-      - eureka-server
+      - service-registry
  
 networks:
   eureka-network:
